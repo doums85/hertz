@@ -36,7 +36,7 @@ export default function FadeIn({
             initial={initial}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration, delay, ease: "easeOut" }}
+            transition={{ duration, delay }}
             className={`${fullWidth ? "w-full" : ""} ${className}`}
             {...props}
         >
