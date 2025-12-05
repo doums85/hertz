@@ -1,6 +1,10 @@
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { MapPin, ArrowRight } from "lucide-react";
+import FadeIn from "@/components/animations/fade-in";
+import StaggerContainer from "@/components/animations/stagger-container";
+import StaggerScaleItem from "@/components/animations/stagger-scale-item";
 
 export default function DestinationsSection() {
     const destinations = [
@@ -42,33 +46,45 @@ export default function DestinationsSection() {
         }
     ];
 
+
     return (
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-gray-50 overflow-hidden">
             <div className="container mx-auto px-4 max-w-7xl">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-                    <div className="max-w-2xl">
+                    <FadeIn
+                        direction="left"
+                        duration={0.8}
+                        className="max-w-2xl"
+                    >
                         <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 uppercase italic tracking-tighter">
                             Nos <span className="text-[#FFD200]">Destinations</span>
                         </h2>
                         <p className="text-gray-600 text-lg">
                             De Dakar à la Casamance, nos agences vous accueillent partout au Sénégal pour vous offrir une mobilité sans limite.
                         </p>
-                    </div>
-                    <Button variant="outline" className="hidden md:flex border-2 border-black text-black hover:bg-black hover:text-white transition-all font-bold group">
-                        Trouver une agence <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
+                    </FadeIn>
+                    <FadeIn
+                        direction="right"
+                        duration={0.8}
+                    >
+                        <Button variant="outline" className="hidden md:flex border-2 border-black text-black hover:bg-black hover:text-white transition-all font-bold group">
+                            Trouver une agence <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                    </FadeIn>
                 </div>
 
-                {/* 
+                {/*
                    Grid Layout Logic: 4 columns
                    Row 1: Dakar (2x2) | Saly (1x1) | St-Louis (1x1)
                    Row 2: [Dakar spans here] | Thiès (1x1) | Touba (1x1)
                    Row 3: Ziguinchor (2x1) | Cap Skirring (2x1)
                 */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[250px] gap-4">
+                <StaggerContainer
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[250px] gap-4"
+                >
 
                     {/* Dakar (Large - 2x2) */}
-                    <div className="group relative overflow-hidden rounded-2xl md:col-span-2 md:row-span-2 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <StaggerScaleItem className="group relative overflow-hidden rounded-2xl md:col-span-2 md:row-span-2 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                         <Image
                             src={destinations[0].image}
                             alt={destinations[0].name}
@@ -91,27 +107,39 @@ export default function DestinationsSection() {
                                 </Button>
                             </div>
                         </div>
-                    </div>
+                    </StaggerScaleItem>
 
                     {/* Saly (1x1) */}
-                    <SimpleDestinationCard destination={destinations[1]} />
+                    <StaggerScaleItem>
+                        <SimpleDestinationCard destination={destinations[1]} />
+                    </StaggerScaleItem>
 
                     {/* Saint-Louis (1x1) */}
-                    <SimpleDestinationCard destination={destinations[2]} />
+                    <StaggerScaleItem>
+                        <SimpleDestinationCard destination={destinations[2]} />
+                    </StaggerScaleItem>
 
                     {/* Thiès (1x1) */}
-                    <SimpleDestinationCard destination={destinations[3]} />
+                    <StaggerScaleItem>
+                        <SimpleDestinationCard destination={destinations[3]} />
+                    </StaggerScaleItem>
 
                     {/* Touba (1x1) */}
-                    <SimpleDestinationCard destination={destinations[4]} />
+                    <StaggerScaleItem>
+                        <SimpleDestinationCard destination={destinations[4]} />
+                    </StaggerScaleItem>
 
                     {/* Ziguinchor (2x1) */}
-                    <WideDestinationCard destination={destinations[5]} />
+                    <StaggerScaleItem className="md:col-span-2">
+                        <WideDestinationCard destination={destinations[5]} />
+                    </StaggerScaleItem>
 
                     {/* Cap Skirring (2x1) */}
-                    <WideDestinationCard destination={destinations[6]} />
+                    <StaggerScaleItem className="md:col-span-2">
+                        <WideDestinationCard destination={destinations[6]} />
+                    </StaggerScaleItem>
 
-                </div>
+                </StaggerContainer>
 
                 <div className="mt-8 text-center md:hidden">
                     <Button variant="outline" className="w-full border-2 border-black text-black hover:bg-black hover:text-white transition-all font-bold">
@@ -126,7 +154,7 @@ export default function DestinationsSection() {
 // Helper Components for cleaner code
 function SimpleDestinationCard({ destination }: { destination: any }) {
     return (
-        <div className="group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div className="group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full w-full">
             <Image
                 src={destination.image}
                 alt={destination.name}
@@ -146,7 +174,7 @@ function SimpleDestinationCard({ destination }: { destination: any }) {
 
 function WideDestinationCard({ destination }: { destination: any }) {
     return (
-        <div className="group relative overflow-hidden rounded-2xl md:col-span-2 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div className="group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full w-full">
             <Image
                 src={destination.image}
                 alt={destination.name}

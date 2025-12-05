@@ -1,5 +1,8 @@
+
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Mail, ArrowRight } from "lucide-react";
+import FadeIn from "@/components/animations/fade-in";
 
 export default function NewsletterSection() {
     return (
@@ -15,75 +18,74 @@ export default function NewsletterSection() {
             ></div>
 
             {/* Ambient Glows */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FFD200]/10 rounded-full blur-[120px] pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-green-900/20 rounded-full blur-[120px] pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FFD200]/10 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-green-900/20 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{ animationDelay: "1s" }}></div>
 
             <div className="container mx-auto px-4 relative">
                 <div className="max-w-5xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFD200]/10 border border-[#FFD200]/20 text-[#FFD200] font-medium text-sm mb-4">
-                                <span className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFD200] opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FFD200]"></span>
-                                </span>
-                                Newsletter Exclusive
+                        {/* Text and Stats */}
+                        <FadeIn
+                            direction="left"
+                            duration={0.8}
+                            className="space-y-6"
+                        >
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFD200]/10 border border-[#FFD200]/20 text-[#FFD200] text-sm font-bold uppercase tracking-wider">
+                                <span className="w-2 h-2 rounded-full bg-[#FFD200] animate-pulse"></span>
+                                Hertz Sénégal Community
                             </div>
 
-                            <h2 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter leading-tight">
-                                DALAL AK <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD200] to-yellow-500">JAM !</span>
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight uppercase italic tracking-tighter">
+                                Dalal Ak <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD200] via-yellow-400 to-[#FFD200]">Jam !</span>
                             </h2>
 
-                            <p className="text-gray-400 text-lg md:text-xl font-light leading-relaxed max-w-lg">
-                                Rejoignez le club Hertz Sénégal. Recevez nos meilleures offres de location et nos secrets de voyage directement dans votre boîte mail.
+                            <p className="text-gray-400 text-lg md:text-xl font-medium max-w-md leading-relaxed">
+                                Rejoignez notre communauté pour recevoir nos meilleures offres et découvrir les trésors cachés du Sénégal.
                             </p>
 
-                            <div className="flex gap-4 pt-4">
-                                <div className="flex flex-col">
-                                    <span className="text-3xl font-bold text-white">5k+</span>
-                                    <span className="text-xs text-gray-500 uppercase tracking-widest">Abonnés</span>
+                            <div className="flex items-center gap-8 pt-4">
+                                <div>
+                                    <p className="text-3xl font-black text-white">5k+</p>
+                                    <p className="text-gray-500 text-sm font-bold uppercase tracking-wide">Abonnés</p>
                                 </div>
                                 <div className="w-px h-12 bg-gray-800"></div>
-                                <div className="flex flex-col">
-                                    <span className="text-3xl font-bold text-white">100%</span>
-                                    <span className="text-xs text-gray-500 uppercase tracking-widest">Senegal</span>
+                                <div>
+                                    <p className="text-3xl font-black text-white">100%</p>
+                                    <p className="text-gray-500 text-sm font-bold uppercase tracking-wide">Sénégal</p>
                                 </div>
                             </div>
-                        </div>
+                        </FadeIn>
 
-                        <div className="relative">
-                            <div className="absolute -inset-1 bg-gradient-to-r from-[#FFD200] via-orange-500 to-green-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                            <div className="relative bg-zinc-900 border border-zinc-800 p-8 rounded-2xl shadow-2xl">
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="w-12 h-12 rounded-xl bg-[#FFD200] flex items-center justify-center shadow-lg shadow-yellow-500/20">
-                                        <Mail className="w-6 h-6 text-black" />
+                        {/* Form Card */}
+                        <FadeIn
+                            direction="right"
+                            duration={0.8}
+                            className="relative"
+                        >
+                            <div className="absolute -inset-1 bg-gradient-to-r from-[#FFD200] to-green-600 rounded-2xl blur opacity-20 animate-pulse"></div>
+                            <div className="relative bg-gray-900/80 backdrop-blur-xl border border-gray-800 p-8 rounded-2xl shadow-2xl">
+                                <div className="space-y-4">
+                                    <div className="space-y-2">
+                                        <label htmlFor="email" className="text-sm font-bold text-gray-300 uppercase tracking-wide">Votre email</label>
+                                        <div className="relative">
+                                            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
+                                            <Input
+                                                id="email"
+                                                type="email"
+                                                placeholder="exemple@email.com"
+                                                className="bg-black/50 border-gray-700 text-white pl-10 h-12 focus:border-[#FFD200] focus:ring-[#FFD200]/20 rounded-xl transition-all"
+                                            />
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h3 className="text-white font-bold text-xl">Restez connecté</h3>
-                                        <p className="text-gray-400 text-sm">Pas de spam, promis.</p>
-                                    </div>
-                                </div>
-
-                                <form className="space-y-4">
-                                    <div>
-                                        <label htmlFor="email" className="sr-only">Email</label>
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            placeholder="votre@email.com"
-                                            className="w-full bg-black/50 border border-zinc-700 text-white placeholder:text-zinc-600 px-6 py-4 rounded-xl focus:outline-none focus:border-[#FFD200] focus:ring-1 focus:ring-[#FFD200] transition-all"
-                                        />
-                                    </div>
-                                    <Button className="w-full bg-[#FFD200] hover:bg-yellow-400 text-black font-black text-lg h-14 rounded-xl transition-all group">
-                                        S'inscrire maintenant
-                                        <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    <Button className="w-full h-12 bg-[#FFD200] hover:bg-white text-black font-black text-lg uppercase tracking-wide rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]">
+                                        S'inscrire <ArrowRight className="ml-2 w-5 h-5" />
                                     </Button>
-                                </form>
+                                </div>
                             </div>
-                        </div>
+                        </FadeIn>
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 }
