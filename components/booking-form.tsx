@@ -216,6 +216,7 @@ export default function BookingForm() {
                                     </div>
                                 </div>
                             </div>
+                            
 
                             {/* Submit Button */}
                             <div className="lg:col-span-1 flex items-end">
