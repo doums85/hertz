@@ -223,7 +223,7 @@ export default function BookingForm() {
                                     size="lg"
                                     className="w-full h-12 md:h-[52px] bg-yellow-400 hover:bg-yellow-500 text-black font-black text-base rounded-lg shadow-sm transition-all"
                                 >
-                                    <span className="mr-2">Voir les véhicules</span>
+                                    <span className="mr-2 md:sr-only">Voir les véhicules</span>
                                     <svg
                                         className="w-6 h-6"
                                         fill="none"
