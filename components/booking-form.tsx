@@ -12,6 +12,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 import { CalendarIcon, MapPin } from "lucide-react";
+import { InputGroup, InputGroupInput, InputGroupAddon } from "@/components/ui/input-group";
 
 export default function BookingForm() {
     const [pickupDate, setPickupDate] = useState<Date | undefined>(undefined);
@@ -50,7 +51,8 @@ export default function BookingForm() {
                 transition-all duration-300 relative mx-auto
                 ${isSticky
                     ? 'w-full bg-white shadow-xl border-b border-gray-100' // Full width, squared corners
-                    : 'w-full bg-white rounded-2xl shadow-2xl ring-1 ring-black/5 overflow-hidden'}
+                    : 'w-full bg-white rounded-2xl shadow-2xl ring-1 ring-black/5 overflow-hidden'
+                }
             `}>
                 <div className="w-full">
                     {/* Bottom Border Accent - Show only when not sticky */}
@@ -127,18 +129,22 @@ export default function BookingForm() {
                                     <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
                                     <span className="text-[10px] md:text-xs font-black text-gray-500 uppercase tracking-wider">Départ</span>
                                 </div>
-                                <div className="grid grid-cols-[1.5fr_1fr] md:flex gap-3">
-                                    <div className="flex-1 min-w-0">
+                                <div className="grid grid-cols-[1fr_auto] gap-2 md:flex md:gap-3">
+                                    <div className="min-w-0 md:flex-1">
                                         <Popover open={pickupDateOpen} onOpenChange={setPickupDateOpen}>
                                             <PopoverTrigger asChild>
-                                                <Button
-                                                    variant="outline"
-                                                    id="pickupDate"
-                                                    className="w-full h-10 md:h-11 justify-between font-medium text-xs md:text-sm bg-white border-gray-300 hover:border-yellow-400 focus:border-yellow-400 rounded-md px-3"
-                                                >
-                                                    <span className="truncate">{pickupDate ? pickupDate.toLocaleDateString('fr-FR') : "Date"}</span>
-                                                    <CalendarIcon className="w-3.5 h-3.5 text-gray-400 ml-1 shrink-0" />
-                                                </Button>
+                                                <div role="button" tabIndex={0} className="outline-none">
+                                                    <InputGroup className="bg-white hover:border-yellow-400 focus-within:border-yellow-400 h-10 md:h-11">
+                                                        <InputGroupInput
+                                                            value={pickupDate ? pickupDate.toLocaleDateString('fr-FR') : "Date"}
+                                                            readOnly
+                                                            className="cursor-pointer text-xs md:text-sm font-medium"
+                                                        />
+                                                        <InputGroupAddon align="inline-end">
+                                                            <CalendarIcon className="size-3.5 text-gray-400" />
+                                                        </InputGroupAddon>
+                                                    </InputGroup>
+                                                </div>
                                             </PopoverTrigger>
                                             <PopoverContent className="w-auto p-0" align="start">
                                                 <Calendar
@@ -152,12 +158,14 @@ export default function BookingForm() {
                                             </PopoverContent>
                                         </Popover>
                                     </div>
-                                    <div className="w-full sm:w-[130px] shrink-0">
-                                        <Input
-                                            type="time"
-                                            defaultValue="10:00"
-                                            className="w-full h-10 md:h-11 bg-white border-gray-300 rounded-md text-xs md:text-sm focus:border-yellow-400"
-                                        />
+                                    <div className="w-[110px] md:w-[130px] shrink-0">
+                                        <InputGroup className="bg-white hover:border-yellow-400 focus-within:border-yellow-400 h-10 md:h-11">
+                                            <InputGroupInput
+                                                type="time"
+                                                defaultValue="10:00"
+                                                className="text-xs md:text-sm"
+                                            />
+                                        </InputGroup>
                                     </div>
                                 </div>
                             </div>
@@ -168,18 +176,22 @@ export default function BookingForm() {
                                     <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
                                     <span className="text-[10px] md:text-xs font-black text-gray-500 uppercase tracking-wider">Retour</span>
                                 </div>
-                                <div className="grid grid-cols-[1.5fr_1fr] md:flex gap-3">
-                                    <div className="flex-1 min-w-0">
+                                <div className="grid grid-cols-[1fr_auto] gap-2 md:flex md:gap-3">
+                                    <div className="min-w-0 md:flex-1">
                                         <Popover open={returnDateOpen} onOpenChange={setReturnDateOpen}>
                                             <PopoverTrigger asChild>
-                                                <Button
-                                                    variant="outline"
-                                                    id="returnDate"
-                                                    className="w-full h-10 md:h-11 justify-between font-medium text-xs md:text-sm bg-white border-gray-300 hover:border-yellow-400 focus:border-yellow-400 rounded-md px-3"
-                                                >
-                                                    <span className="truncate">{returnDate ? returnDate.toLocaleDateString('fr-FR') : "Date"}</span>
-                                                    <CalendarIcon className="w-3.5 h-3.5 text-gray-400 ml-1 shrink-0" />
-                                                </Button>
+                                                <div role="button" tabIndex={0} className="outline-none">
+                                                    <InputGroup className="bg-white hover:border-yellow-400 focus-within:border-yellow-400 h-10 md:h-11">
+                                                        <InputGroupInput
+                                                            value={returnDate ? returnDate.toLocaleDateString('fr-FR') : "Date"}
+                                                            readOnly
+                                                            className="cursor-pointer text-xs md:text-sm font-medium"
+                                                        />
+                                                        <InputGroupAddon align="inline-end">
+                                                            <CalendarIcon className="size-3.5 text-gray-400" />
+                                                        </InputGroupAddon>
+                                                    </InputGroup>
+                                                </div>
                                             </PopoverTrigger>
                                             <PopoverContent className="w-auto p-0" align="start">
                                                 <Calendar
@@ -193,12 +205,14 @@ export default function BookingForm() {
                                             </PopoverContent>
                                         </Popover>
                                     </div>
-                                    <div className="w-full sm:w-[130px] shrink-0">
-                                        <Input
-                                            type="time"
-                                            defaultValue="10:00"
-                                            className="w-full h-10 md:h-11 bg-white border-gray-300 rounded-md text-xs md:text-sm focus:border-yellow-400"
-                                        />
+                                    <div className="w-[110px] md:w-[130px] shrink-0">
+                                        <InputGroup className="bg-white hover:border-yellow-400 focus-within:border-yellow-400 h-10 md:h-11">
+                                            <InputGroupInput
+                                                type="time"
+                                                defaultValue="10:00"
+                                                className="text-xs md:text-sm"
+                                            />
+                                        </InputGroup>
                                     </div>
                                 </div>
                             </div>
