@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight, Fuel, Gauge, Users, Briefcase, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -85,7 +86,7 @@ export default function VehicleSection() {
             '(min-width: 768px)': { slidesToScroll: 2 },
             '(min-width: 1024px)': { slidesToScroll: 3 }
         }
-    });
+    }, [Autoplay({ delay: 4000, stopOnInteraction: true })]);
 
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false);

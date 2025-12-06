@@ -127,7 +127,12 @@ export default function Footer() {
             </div>
 
             {/* Senegal Flag Bottom Line - Refined */}
-            <div className="w-full h-2 flex opacity-90 transition-opacity duration-300">
+            <FadeIn
+                delay={0.6}
+                direction="up"
+                className="w-full h-3 flex opacity-90 transition-opacity duration-300"
+                viewport={{ once: true, margin: "0px" }}
+            >
                 <div className="h-full w-1/3 bg-[#00853F]"></div>
                 <div className="h-full w-1/3 bg-[#FDEF42] flex items-center justify-center relative overflow-hidden">
                     <svg viewBox="0 0 24 24" fill="currentColor" className="text-[#00853F] h-full w-auto py-px relative z-10">
@@ -135,7 +140,7 @@ export default function Footer() {
                     </svg>
                 </div>
                 <div className="h-full w-1/3 bg-[#E31B23]"></div>
-            </div>
+            </FadeIn>
         </footer>
     );
 }
