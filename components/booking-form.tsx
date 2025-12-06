@@ -127,7 +127,7 @@ export default function BookingForm() {
                                     <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
                                     <span className="text-[10px] md:text-xs font-black text-gray-500 uppercase tracking-wider">Départ</span>
                                 </div>
-                                <div className="flex gap-3">
+                                <div className="grid grid-cols-[1.5fr_1fr] md:flex gap-3">
                                     <div className="flex-1 min-w-0">
                                         <Popover open={pickupDateOpen} onOpenChange={setPickupDateOpen}>
                                             <PopoverTrigger asChild>
@@ -152,7 +152,7 @@ export default function BookingForm() {
                                             </PopoverContent>
                                         </Popover>
                                     </div>
-                                    <div className="w-[110px] sm:w-[130px] shrink-0">
+                                    <div className="w-full sm:w-[130px] shrink-0">
                                         <Input
                                             type="time"
                                             defaultValue="10:00"
@@ -168,7 +168,7 @@ export default function BookingForm() {
                                     <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
                                     <span className="text-[10px] md:text-xs font-black text-gray-500 uppercase tracking-wider">Retour</span>
                                 </div>
-                                <div className="flex gap-3">
+                                <div className="grid grid-cols-[1.5fr_1fr] md:flex gap-3">
                                     <div className="flex-1 min-w-0">
                                         <Popover open={returnDateOpen} onOpenChange={setReturnDateOpen}>
                                             <PopoverTrigger asChild>
@@ -193,7 +193,7 @@ export default function BookingForm() {
                                             </PopoverContent>
                                         </Popover>
                                     </div>
-                                    <div className="w-[110px] sm:w-[130px] shrink-0">
+                                    <div className="w-full sm:w-[130px] shrink-0">
                                         <Input
                                             type="time"
                                             defaultValue="10:00"
