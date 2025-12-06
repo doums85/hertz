@@ -127,17 +127,17 @@ export default function BookingForm() {
                                     <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
                                     <span className="text-[10px] md:text-xs font-black text-gray-500 uppercase tracking-wider">Départ</span>
                                 </div>
-                                <div className="grid grid-cols-2 gap-3">
-                                    <div>
+                                <div className="flex gap-3">
+                                    <div className="flex-1 min-w-0">
                                         <Popover open={pickupDateOpen} onOpenChange={setPickupDateOpen}>
                                             <PopoverTrigger asChild>
                                                 <Button
                                                     variant="outline"
                                                     id="pickupDate"
-                                                    className="w-full h-10 md:h-11 justify-between font-medium text-xs md:text-sm bg-white border-gray-300 hover:border-yellow-400 focus:border-yellow-400 rounded-md"
+                                                    className="w-full h-10 md:h-11 justify-between font-medium text-xs md:text-sm bg-white border-gray-300 hover:border-yellow-400 focus:border-yellow-400 rounded-md px-3"
                                                 >
                                                     <span className="truncate">{pickupDate ? pickupDate.toLocaleDateString('fr-FR') : "Date"}</span>
-                                                    <CalendarIcon className="w-3.5 h-3.5 text-gray-400 ml-1" />
+                                                    <CalendarIcon className="w-3.5 h-3.5 text-gray-400 ml-1 shrink-0" />
                                                 </Button>
                                             </PopoverTrigger>
                                             <PopoverContent className="w-auto p-0" align="start">
@@ -152,7 +152,7 @@ export default function BookingForm() {
                                             </PopoverContent>
                                         </Popover>
                                     </div>
-                                    <div>
+                                    <div className="w-[110px] sm:w-[130px] shrink-0">
                                         <Input
                                             type="time"
                                             defaultValue="10:00"
@@ -168,17 +168,17 @@ export default function BookingForm() {
                                     <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
                                     <span className="text-[10px] md:text-xs font-black text-gray-500 uppercase tracking-wider">Retour</span>
                                 </div>
-                                <div className="grid grid-cols-2 gap-3">
-                                    <div>
+                                <div className="flex gap-3">
+                                    <div className="flex-1 min-w-0">
                                         <Popover open={returnDateOpen} onOpenChange={setReturnDateOpen}>
                                             <PopoverTrigger asChild>
                                                 <Button
                                                     variant="outline"
                                                     id="returnDate"
-                                                    className="w-full h-10 md:h-11 justify-between font-medium text-xs md:text-sm bg-white border-gray-300 hover:border-yellow-400 focus:border-yellow-400 rounded-md"
+                                                    className="w-full h-10 md:h-11 justify-between font-medium text-xs md:text-sm bg-white border-gray-300 hover:border-yellow-400 focus:border-yellow-400 rounded-md px-3"
                                                 >
                                                     <span className="truncate">{returnDate ? returnDate.toLocaleDateString('fr-FR') : "Date"}</span>
-                                                    <CalendarIcon className="w-3.5 h-3.5 text-gray-400 ml-1" />
+                                                    <CalendarIcon className="w-3.5 h-3.5 text-gray-400 ml-1 shrink-0" />
                                                 </Button>
                                             </PopoverTrigger>
                                             <PopoverContent className="w-auto p-0" align="start">
@@ -193,7 +193,7 @@ export default function BookingForm() {
                                             </PopoverContent>
                                         </Popover>
                                     </div>
-                                    <div>
+                                    <div className="w-[110px] sm:w-[130px] shrink-0">
                                         <Input
                                             type="time"
                                             defaultValue="10:00"
@@ -209,6 +209,7 @@ export default function BookingForm() {
                                     size="lg"
                                     className="w-full h-12 md:h-[52px] bg-yellow-400 hover:bg-yellow-500 text-black font-black text-base rounded-lg shadow-sm transition-all"
                                 >
+                                    <span className="mr-2">Voir les véhicules</span>
                                     <svg
                                         className="w-6 h-6"
                                         fill="none"
