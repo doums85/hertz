@@ -1,5 +1,8 @@
 import OfferCard from "@/components/offers/offer-card";
 import { Badge } from "@/components/ui/badge";
+import FadeIn from "@/components/animations/fade-in";
+import StaggerContainer from "@/components/animations/stagger-container";
+import StaggerItem from "@/components/animations/stagger-item";
 
 export default function OffersPage() {
     const offers = [
@@ -38,9 +41,11 @@ export default function OffersPage() {
             {/* Hero Header */}
             <div className="bg-[#1c1c1c] text-white py-16 px-4 mb-12 relative overflow-hidden">
                 <div className="container mx-auto max-w-6xl relative z-10 text-center">
-                    <Badge className="bg-[#FFD200] text-black hover:bg-[#FFD200] mb-6 px-4 py-1.5 border-0 rounded-full text-xs font-bold shadow-glow uppercase tracking-wider">Bons Plans</Badge>
-                    <h1 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter mb-4 text-white">Nos Offres <span className="text-[#FFD200]">Spéciales</span></h1>
-                    <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">Des réductions exclusives et des avantages pensés pour vous. Ne manquez pas nos meilleures opportunités.</p>
+                    <FadeIn direction="down">
+                        <Badge className="bg-[#FFD200] text-black hover:bg-[#FFD200] mb-6 px-4 py-1.5 border-0 rounded-full text-xs font-bold shadow-glow uppercase tracking-wider">Bons Plans</Badge>
+                        <h1 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter mb-4 text-white">Nos Offres <span className="text-[#FFD200]">Spéciales</span></h1>
+                        <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">Des réductions exclusives et des avantages pensés pour vous. Ne manquez pas nos meilleures opportunités.</p>
+                    </FadeIn>
                 </div>
 
                 {/* Abstract Background Element */}
@@ -49,11 +54,13 @@ export default function OffersPage() {
             </div>
 
             <div className="container mx-auto px-4 max-w-7xl">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {offers.map((offer, index) => (
-                        <OfferCard key={index} {...offer} />
+                        <StaggerItem key={index} className="h-full">
+                            <OfferCard {...offer} />
+                        </StaggerItem>
                     ))}
-                </div>
+                </StaggerContainer>
             </div>
         </main>
     );

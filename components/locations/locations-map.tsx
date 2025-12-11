@@ -25,30 +25,15 @@ interface Location {
     coordinates: [number, number];
     address: string;
     phone: string;
+    hours: string;
+    type: string;
 }
 
-const locations: Location[] = [
-    {
-        name: "Aéroport International Blaise Diagne (AIBD)",
-        coordinates: [14.671, -17.073],
-        address: "Dakar, Sénégal",
-        phone: "+221 33 820 11 11"
-    },
-    {
-        name: "Agence Centre-Ville Dakar",
-        coordinates: [14.670, -17.430], // Approximate center/Gomis coords
-        address: "102 Rue Joseph Gomis",
-        phone: "+221 33 820 11 11"
-    },
-    {
-        name: "Saly Portudal",
-        coordinates: [14.443, -16.992],
-        address: "Route de la résidence du port",
-        phone: "+221 33 957 11 11"
-    }
-];
+interface LocationsMapProps {
+    locations: Location[];
+}
 
-export default function LocationsMap() {
+export default function LocationsMap({ locations }: LocationsMapProps) {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {

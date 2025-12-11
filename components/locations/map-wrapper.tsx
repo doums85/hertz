@@ -12,6 +12,11 @@ const LocationsMap = dynamic(() => import("./locations-map"), {
     ),
 });
 
-export default function MapWrapper() {
-    return <LocationsMap />;
+
+interface MapWrapperProps {
+    locations: any[];
+}
+
+export default function MapWrapper({ locations }: MapWrapperProps) {
+    return <LocationsMap locations={locations} />;
 }

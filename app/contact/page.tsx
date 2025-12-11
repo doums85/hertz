@@ -6,6 +6,7 @@ import { useState, FormEvent } from "react";
 import ContactFormUI from "@/components/contact/contact-form-ui";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import RecaptchaProvider from "@/components/providers/recaptcha-provider";
+import FadeIn from "@/components/animations/fade-in";
 
 function FormWithLogic() {
     const { executeRecaptcha } = useGoogleReCaptcha();
@@ -42,15 +43,17 @@ export default function ContactPage() {
         <main className="bg-gray-50 min-h-screen py-12">
             <div className="container mx-auto px-4 max-w-6xl">
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Contactez-nous</h1>
-                    <p className="text-gray-600 max-w-2xl mx-auto">
-                        Une question ? Besoin d'assistance ? Notre équipe est à votre écoute pour vous accompagner.
-                    </p>
+                    <FadeIn direction="down">
+                        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Contactez-nous</h1>
+                        <p className="text-gray-600 max-w-2xl mx-auto">
+                            Une question ? Besoin d'assistance ? Notre équipe est à votre écoute pour vous accompagner.
+                        </p>
+                    </FadeIn>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* Contact Info */}
-                    <div className="lg:col-span-1 space-y-6">
+                    <FadeIn delay={0.2} direction="right" className="lg:col-span-1 space-y-6 h-full">
                         <Card className="border-none shadow-md h-full">
                             <CardContent className="p-6 space-y-6">
                                 <div className="flex items-start gap-4">
@@ -94,10 +97,10 @@ export default function ContactPage() {
                                 </div>
                             </CardContent>
                         </Card>
-                    </div>
+                    </FadeIn>
 
                     {/* Contact Form */}
-                    <div className="lg:col-span-2">
+                    <FadeIn delay={0.4} direction="left" className="lg:col-span-2 h-full">
                         <Card className="border-none shadow-md h-full">
                             <CardContent className="p-8">
                                 <RecaptchaProvider>
@@ -105,7 +108,7 @@ export default function ContactPage() {
                                 </RecaptchaProvider>
                             </CardContent>
                         </Card>
-                    </div>
+                    </FadeIn>
                 </div>
             </div>
         </main>
