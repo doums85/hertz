@@ -4,11 +4,8 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState, FormEvent } from "react";
 import ContactFormUI from "@/components/contact/contact-form-ui";
-import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
-
-// ⚠️ AJOUTEZ VOTRE CLÉ ICI SI VOUS VOULEZ ACTIVER RECAPTCHA
-// Si vide, le formulaire fonctionnera sans captcha.
-const RECAPTCHA_KEY = "6LflySgsAAAAAOLPzmORyKHXKQZlgJmupTO38LH0";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import RecaptchaProvider from "@/components/providers/recaptcha-provider";
 
 function FormWithLogic() {
     const { executeRecaptcha } = useGoogleReCaptcha();
@@ -19,8 +16,8 @@ function FormWithLogic() {
         setStatus("submitting");
 
         try {
-            // Only verify if key is configured and hook is ready
-            if (RECAPTCHA_KEY && executeRecaptcha) {
+            // Only verify if hook is ready
+            if (executeRecaptcha) {
                 const token = await executeRecaptcha("contact_form");
                 console.log("Captcha Token:", token);
             }
@@ -103,13 +100,9 @@ export default function ContactPage() {
                     <div className="lg:col-span-2">
                         <Card className="border-none shadow-md h-full">
                             <CardContent className="p-8">
-                                {RECAPTCHA_KEY ? (
-                                    <GoogleReCaptchaProvider reCaptchaKey={RECAPTCHA_KEY}>
-                                        <FormWithLogic />
-                                    </GoogleReCaptchaProvider>
-                                ) : (
+                                <RecaptchaProvider>
                                     <FormWithLogic />
-                                )}
+                                </RecaptchaProvider>
                             </CardContent>
                         </Card>
                     </div>

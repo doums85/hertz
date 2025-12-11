@@ -60,9 +60,7 @@ export default function ContactFormUI({ onSubmit, status }: ContactFormProps) {
                 {status === "submitting" ? "Envoi..." : status === "success" ? "Message Envoyé !" : "Envoyer le message"}
             </Button>
 
-            <p className="text-xs text-gray-400 mt-4 leading-tight">
-                Ce site est protégé par reCAPTCHA et la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">Politique de confidentialité</a> et les <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">Conditions d'utilisation</a> de Google s'appliquent.
-            </p>
+
             {status === "success" && (
                 <p className="text-green-600 font-medium mt-2">Votre message a bien été envoyé. Nous vous répondrons sous peu.</p>
             )}
