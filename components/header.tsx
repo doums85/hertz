@@ -19,10 +19,12 @@ export default function Header() {
     const pathname = usePathname();
     const navLinks = [
         { href: "/", label: "Accueil" },
-        { href: "#", label: "Location de voitures" },
-        { href: "#", label: "Location d'utilitaires" },
-        { href: "#", label: "Offres" },
-        { href: "#", label: "Ma réservation" },
+        { href: "/vehicles", label: "Location de voitures" },
+        { href: "/vans", label: "Location d'utilitaires" },
+        { href: "/offers", label: "Offres" },
+        { href: "/locations", label: "Nos Agences" },
+        // { href: "#", label: "Ma réservation" },
+        { href: "/contact", label: "Contact" },
     ];
 
     return (
@@ -87,7 +89,7 @@ export default function Header() {
                     </Sheet>
 
                     {/* Logo */}
-                    <Link href="/" className="flex-shrink-0 group">
+                    <Link href="/" className="shrink-0 group">
                         <Image src="/logo.svg" alt="Logo" width={100} height={100} />
                     </Link>
                 </div>
@@ -114,24 +116,24 @@ export default function Header() {
                 </nav>
 
                 {/* Right Actions */}
-                <div className="flex items-center gap-4 flex-shrink-0 ml-4">
+                <div className="flex items-center gap-4 shrink-0 ml-4">
                     {/* Desktop Right Elements */}
                     <div className="hidden lg:flex items-center gap-2 cursor-pointer hover:opacity-80">
                         <Globe className="w-4 h-4 text-[#FFD200]" />
                         <span className="text-[13px] font-bold underline decoration-1 underline-offset-2">FR/FR</span>
                     </div>
-
+{/* 
                     <div className="hidden lg:block w-[1px] h-6 bg-gray-300 mx-1"></div>
 
                     <div className="hidden lg:flex items-center gap-2 cursor-pointer hover:opacity-80">
                         <span className="text-[13px] font-bold">Se connecter/S'inscrire</span>
-                    </div>
+                    </div> */}
 
                     {/* Mobile Login - Right Aligned */}
-                    <Link href="#" className="flex lg:hidden items-center gap-2 text-black hover:opacity-70 transition-opacity">
+                    {/* <Link href="#" className="flex lg:hidden items-center gap-2 text-black hover:opacity-70 transition-opacity">
                         <User className="w-6 h-6" strokeWidth={2} />
                         <span className="text-sm font-bold whitespace-nowrap">Se connecter</span>
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
 

@@ -1,4 +1,5 @@
 
+import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { MapPin, ArrowRight } from "lucide-react";
@@ -67,9 +68,11 @@ export default function DestinationsSection() {
                         direction="right"
                         duration={0.8}
                     >
-                        <Button variant="outline" className="hidden md:flex border-2 border-black text-black hover:bg-black hover:text-white transition-all font-bold group">
-                            Trouver une agence <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Button>
+                        <Link href="/locations">
+                            <Button variant="outline" className="hidden md:flex border-2 border-black text-black hover:bg-black hover:text-white transition-all font-bold group">
+                                Trouver une agence <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                        </Link>
                     </FadeIn>
                 </div>
 
@@ -91,7 +94,7 @@ export default function DestinationsSection() {
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
+                        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
                         <div className="absolute bottom-6 left-6 right-6">
                             <div className="bg-black/30 backdrop-blur-md border border-white/20 p-6 rounded-2xl shadow-lg group-hover:bg-black/50 transition-all duration-300">
                                 <div className="flex items-center gap-2 mb-2">
@@ -102,9 +105,11 @@ export default function DestinationsSection() {
                                 <p className="text-white text-lg font-medium leading-relaxed mb-4">
                                     {destinations[0].description}
                                 </p>
-                                <Button className="w-full bg-[#FFD200] text-black hover:bg-white hover:text-black border-none font-bold rounded-xl h-12">
-                                    Voir l'agence
-                                </Button>
+                                <Link href="/locations">
+                                    <Button className="w-full bg-[#FFD200] text-black hover:bg-white hover:text-black border-none font-bold rounded-xl h-12">
+                                        Voir l'agence
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
                     </StaggerScaleItem>
@@ -142,9 +147,11 @@ export default function DestinationsSection() {
                 </StaggerContainer>
 
                 <div className="mt-8 text-center md:hidden">
-                    <Button variant="outline" className="w-full border-2 border-black text-black hover:bg-black hover:text-white transition-all font-bold">
-                        Voir toutes les agences
-                    </Button>
+                    <Link href="/locations" className="w-full">
+                        <Button variant="outline" className="w-full border-2 border-black text-black hover:bg-black hover:text-white transition-all font-bold">
+                            Voir toutes les agences
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </section>
@@ -161,7 +168,7 @@ function SimpleDestinationCard({ destination }: { destination: any }) {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-50"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent opacity-50"></div>
             <div className="absolute bottom-4 left-4 right-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                 <div className="bg-black/40 backdrop-blur-md border border-white/20 p-4 rounded-xl shadow-lg group-hover:bg-black/60 transition-colors duration-300">
                     <h3 className="text-xl font-bold text-white mb-1 group-hover:text-[#FFD200] transition-colors">{destination.name}</h3>
@@ -181,7 +188,7 @@ function WideDestinationCard({ destination }: { destination: any }) {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-50"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent opacity-50"></div>
             <div className="absolute bottom-4 left-4 right-4 flex flex-col justify-end items-start h-full pointer-events-none">
                 <div className="bg-black/40 backdrop-blur-md border border-white/20 p-5 rounded-xl shadow-lg w-full md:w-auto md:min-w-[300px] group-hover:bg-black/60 transition-colors duration-300 pointer-events-auto">
                     <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-[#FFD200] transition-colors">{destination.name}</h3>

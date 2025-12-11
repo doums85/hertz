@@ -18,7 +18,6 @@ export default function Home() {
       {/* <TeamSection /> */}
       <DestinationsSection />
       <NewsletterSection />
-      <Footer />
     </main>
   );
 }

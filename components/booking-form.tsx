@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -216,25 +217,28 @@ export default function BookingForm() {
                                     </div>
                                 </div>
                             </div>
-                            
+
 
                             {/* Submit Button */}
                             <div className="lg:col-span-1 flex items-end">
-                                <Button
-                                    size="lg"
-                                    className="w-full h-12 md:h-[52px] bg-yellow-400 hover:bg-yellow-500 text-black font-black text-base rounded-lg shadow-sm transition-all"
-                                >
-                                    <span className="mr-2 md:sr-only">Voir les véhicules</span>
-                                    <svg
-                                        className="w-6 h-6"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth={3}
-                                        viewBox="0 0 24 24"
+                                <Link href="/vehicles" className="w-full">
+                                    <Button
+                                        size="lg"
+                                        className="w-full h-12 md:h-[52px] bg-yellow-400 hover:bg-yellow-500 text-black font-black text-base rounded-lg shadow-sm transition-all"
                                     >
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                    </svg>
-                                </Button>
+                                        <span className="hidden md:inline mr-2">Voir</span>
+                                        <span className="md:hidden mr-2">Voir les véhicules</span>
+                                        <svg
+                                            className="w-6 h-6"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth={3}
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                        </svg>
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
                     </div>

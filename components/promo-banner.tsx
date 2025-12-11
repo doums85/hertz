@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
@@ -21,10 +22,12 @@ export default function PromoBanner() {
                             <span className="font-bold">Puissance, Confort et Style.</span>
                         </p>
 
-                        <button className="mt-6 inline-flex items-center gap-2 bg-black text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-900 transition-transform hover:scale-105 active:scale-95 shadow-lg">
-                            Découvrir la gamme
-                            <ArrowRight className="w-5 h-5" />
-                        </button>
+                        <Link href="/vehicles">
+                            <button className="mt-6 inline-flex items-center gap-2 bg-black text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-900 transition-transform hover:scale-105 active:scale-95 shadow-lg">
+                                Découvrir la gamme
+                                <ArrowRight className="w-5 h-5" />
+                            </button>
+                        </Link>
                     </div>
 
                     {/* Car Image - Positioned to look like the reference */}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import useEmblaCarousel from "embla-carousel-react";
@@ -177,7 +178,7 @@ export default function VehicleSection() {
                                             </div>
 
                                             {/* Content */}
-                                            <div className="p-6 flex flex-col flex-grow">
+                                            <div className="p-6 flex flex-col grow">
                                                 <h3 className="text-xl font-bold text-gray-900 mb-2">{vehicle.name}</h3>
                                                 <div className="w-12 h-1 bg-[#FFD200] mb-4"></div>
 
@@ -219,12 +220,14 @@ export default function VehicleSection() {
 
                     {/* Bottom Action */}
                     <div className="mt-12 text-center">
-                        <Button
-                            className="bg-[#FFD200] hover:bg-black hover:text-white text-black font-black text-lg px-8 py-6 rounded-full transition-all group shadow-xl shadow-yellow-400/20"
-                        >
-                            Voir tous les véhicules
-                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Button>
+                        <Link href="/vehicles">
+                            <Button
+                                className="bg-[#FFD200] hover:bg-black hover:text-white text-black font-black text-lg px-8 py-6 rounded-full transition-all group shadow-xl shadow-yellow-400/20"
+                            >
+                                Voir tous les véhicules
+                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                        </Link>
                     </div>
                 </motion.div>
             </div>

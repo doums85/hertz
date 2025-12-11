@@ -8,25 +8,25 @@ import StaggerItem from "@/components/animations/stagger-item";
 export default function Footer() {
     const footerLinks = {
         "Découvrir": [
-            "Notre histoire",
-            "Nos véhicules",
-            "Nos agences",
-            "Blog Voyage",
-            "Développement durable"
+            { label: "Notre histoire", href: "#" },
+            { label: "Nos véhicules", href: "/vehicles" },
+            { label: "Nos agences", href: "/locations" },
+            { label: "Blog Voyage", href: "#" },
+            { label: "Développement durable", href: "#" }
         ],
         "Locations": [
-            "Voitures de luxe",
-            "4x4 & SUV",
-            "Utilitaires",
-            "Location chauffeur",
-            "L.L.D Entreprise"
+            { label: "Voitures de luxe", href: "/vehicles" },
+            { label: "4x4 & SUV", href: "/vehicles" },
+            { label: "Utilitaires", href: "/vans" },
+            { label: "Location chauffeur", href: "#" },
+            { label: "L.L.D Entreprise", href: "#" }
         ],
         "Support": [
-            "Centre d'aide",
-            "Gérer ma réservation",
-            "Objets trouvés",
-            "Assurances",
-            "Contact"
+            { label: "Centre d'aide", href: "#" },
+            { label: "Gérer ma réservation", href: "#" },
+            { label: "Objets trouvés", href: "#" },
+            { label: "Assurances", href: "#" },
+            { label: "Contact", href: "#" }
         ]
     };
 
@@ -68,13 +68,13 @@ export default function Footer() {
                                 {category}
                             </h4>
                             <ul className="space-y-2">
-                                {links.map((link) => (
-                                    <li key={link}>
+                                {links.map((link, index) => (
+                                    <li key={index}>
                                         <Link
-                                            href="#"
+                                            href={link.href}
                                             className="text-gray-600 hover:text-[#FFD200] hover:pl-1 transition-all duration-300 text-sm font-medium block"
                                         >
-                                            {link}
+                                            {link.label}
                                         </Link>
                                     </li>
                                 ))}
@@ -86,7 +86,7 @@ export default function Footer() {
                 {/* Contact & Info */}
                 <StaggerContainer delay={0.2} className="grid grid-cols-1 md:grid-cols-12 gap-6 py-6 border-t border-gray-200">
                     <StaggerItem className="md:col-span-3 flex items-center gap-3 text-gray-600 hover:text-black transition-colors cursor-pointer group">
-                        <div className="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-[#FFD200] group-hover:scale-105 transition-transform shadow-sm flex-shrink-0">
+                        <div className="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-[#FFD200] group-hover:scale-105 transition-transform shadow-sm shrink-0">
                             <Phone className="w-4 h-4" />
                         </div>
                         <div>
@@ -96,7 +96,7 @@ export default function Footer() {
                     </StaggerItem>
 
                     <StaggerItem className="md:col-span-4 flex items-center gap-3 text-gray-600 hover:text-black transition-colors cursor-pointer group">
-                        <div className="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-[#FFD200] group-hover:scale-105 transition-transform shadow-sm flex-shrink-0">
+                        <div className="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-[#FFD200] group-hover:scale-105 transition-transform shadow-sm shrink-0">
                             <Mail className="w-4 h-4" />
                         </div>
                         <div>
@@ -106,7 +106,7 @@ export default function Footer() {
                     </StaggerItem>
 
                     <StaggerItem className="md:col-span-5 flex items-center gap-3 text-gray-600 hover:text-black transition-colors cursor-pointer group">
-                        <div className="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-[#FFD200] group-hover:scale-105 transition-transform shadow-sm flex-shrink-0">
+                        <div className="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-[#FFD200] group-hover:scale-105 transition-transform shadow-sm shrink-0">
                             <MapPin className="w-4 h-4" />
                         </div>
                         <div>
